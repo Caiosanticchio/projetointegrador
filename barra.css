@@ -1,0 +1,437 @@
+/* ===================== */
+/* 🔍 Barra de Pesquisa  */
+/* ===================== */
+
+.form {
+  --timing: 0.3s;
+  --width-of-input: 200px;
+  --height-of-input: 40px;
+  --border-height: 2px;
+  --input-bg: #fff;
+  --border-color: #2f2ee9;
+  --border-radius: 30px;
+  --after-border-radius: 1px;
+  position: relative;
+  width: var(--width-of-input);
+  height: var(--height-of-input);
+  display: flex;
+  align-items: center;
+  padding-inline: 0.8em;
+  border-radius: var(--border-radius);
+  background: var(--input-bg);
+  transition: border-radius 0.5s ease;
+}
+
+.form button {
+  border: none;
+  background: none;
+  color: #8b8ba7;
+}
+
+.input {
+  font-size: 0.9rem;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  padding-inline: 0.5em;
+  border: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+.form:before {
+  content: "";
+  position: absolute;
+  background: var(--border-color);
+  transform: scaleX(0);
+  transform-origin: center;
+  width: 100%;
+  height: var(--border-height);
+  left: 0;
+  bottom: 0;
+  border-radius: 1px;
+  transition: transform var(--timing) ease;
+}
+
+.form:focus-within {
+  border-radius: var(--after-border-radius);
+}
+
+.form:focus-within:before {
+  transform: scale(1);
+}
+
+.reset {
+  border: none;
+  background: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
+input:not(:placeholder-shown) ~ .reset {
+  opacity: 1;
+  visibility: visible;
+}
+
+.form svg {
+  width: 17px;
+  margin-top: 3px;
+}
+
+/* ===================== */
+/* 🪟 Modal Produto      */
+/* ===================== */
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 5000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 10px;
+  padding: 18px;
+  width: 420px;
+  max-width: 92%;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.modal-content img {
+  width: 150px;
+  margin-bottom: 12px;
+  object-fit: contain;
+}
+
+.modal-close {
+  position: absolute;
+  right: 12px;
+  top: 8px;
+  font-size: 22px;
+  cursor: pointer;
+  color: #777;
+  border: none;
+  background: transparent;
+}
+
+#modal-name {
+  font-size: 23px;
+}
+
+input#modal-quant {
+  width: 25px;
+  text-align: center;
+  padding: 8px;
+  border:none;
+  border: 1px solid #ccc;
+  margin-left: 8px;
+}
+
+/* ===================== */
+/* 🛒 Carrinho Sidebar   */
+/* ===================== */
+
+.cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: -420px;
+  width: 380px;
+  max-width: 102%;
+  height: 95%;
+  background: #ffffff;
+  box-shadow: -6px 0 20px rgba(0, 0, 0, 0.12);
+  transition: right 0.35s ease;
+  z-index: 4800;
+  display: flex;
+  flex-direction: column;
+  padding: 22px;
+  border-left: 1px solid #eee;
+}
+
+.cart-sidebar.open {
+  right: 0;
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.cart-header h2 {
+  margin: 0;
+  font-size: 20px;
+  color: #222;
+}
+
+.cart-items {
+  flex: 1;
+  overflow-y: auto;
+  margin-top: 6px;
+  padding-right: 6px;
+}
+
+.cart-empty {
+  text-align: center;
+  color: #666;
+  padding: 18px 6px;
+}
+
+.cart-item {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+  background: #fffcfc;
+  box-shadow: rgba(60, 64, 67, 0.25) 0px 1px 2px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  margin-bottom: 8px;
+}
+
+.cart-item img {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.cart-item .info {
+  flex: 1;
+}
+
+.cart-item .info p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.cart-item .controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.qty-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: #8b2e2e;
+  color: white;
+  cursor: pointer;
+}
+
+.remove-btn {
+  background: transparent;
+  border: none;
+  color: #b13a3a;
+  cursor: pointer;
+  font-weight: 600;
+  margin-left: 6px;
+}
+
+/* ===================== */
+/* 💳 Botões e Pagamento */
+/* ===================== */
+
+.cart-footer {
+  border-top: 1px solid #eee;
+  padding-top: 4px;
+  margin-top: 4px;
+}
+
+.cart-total {
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-align: right;
+}
+
+.cart-action{
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  margin-top: 6px;
+  background: transparent;
+  border: 1px solid #000;
+  color: #000000;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 1.2em;
+  border-radius: 2px;
+  transition: background-color 0.3s ease;
+}
+
+.cart-action2{
+  padding: 2em;
+  cursor: pointer;
+  width: 100%;
+  background-color: rgb(133, 43, 43);
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+}
+
+.cart-action:hover {
+  background-color: #000000;
+  transition: 0.5s;
+  color: #ffff;
+}
+
+.cart-clear {
+  background: transparent;
+  color: #000000;
+}
+
+.payment-options {
+  display: none;
+  margin-top: 15px;
+  padding-top: 12px;
+  border-top: 1px solid #eee;
+}
+
+.payment-options.show {
+  display: block;
+}
+
+.payment-options .title {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.pay-grid {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.payment-option {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid transparent;
+  opacity: 0.6;
+  transition: all 0.2s ease;
+}
+
+.payment-option.active {
+  opacity: 1;
+  border-color: #d9d9d9;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+.payment-form {
+  display: none;
+  margin-top: 8px;
+  animation: fadeIn 0.25s ease;
+}
+
+.payment-form.active {
+  display: block;
+}
+
+.payment-form label {
+  display: block;
+  margin: 10px 0 6px;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.payment-form input {
+  width: 100%;
+  padding: 10px 6px;
+  border: none;
+  border-bottom: 1.5px solid #000;
+  background: transparent;
+  outline: none;
+  font-size: 14px;
+}
+
+.payment-form input::placeholder {
+  color: #aaa;
+}
+
+.confirm-btn {
+  width: 100%;
+  padding: 2em;
+  margin-top: 14px;
+  border-radius: 2px;
+  border: 1.5px solid #000;
+  font-size: 14px;
+  background: transparent;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.confirm-btn:hover {
+  background: #000;
+  transition: 0.3s;
+  color: #fff;
+}
+
+/* ===================== */
+/* 🛍️ Carrinho Badge     */
+/* ===================== */
+
+.cart-badge {
+  position: absolute;
+  right: -2px;
+  background: #c51a17;
+  color: #fff;
+  padding: 4px 6.5px;
+  width: 10px;
+  text-align: center;
+  border-radius: 100%;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.icons{
+  width: 30px;
+  height: 30px;
+}
+/* ===================== */
+/* 🔢 Responsividade     */
+/* ===================== */
+
+@media (max-width: 600px) {
+  .cart-sidebar {
+    width: 92%;
+  }
+  .pay-grid {
+    flex-direction: column;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

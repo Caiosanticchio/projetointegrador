@@ -1,0 +1,487 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
+body{
+    margin: 0;
+   font-family: "Work Sans", sans-serif;
+   
+}
+
+
+.apresentacao {
+    background-image: url("imagens/fundo.jpg");
+    background-size: cover;
+    background-position: fixed;
+    text-align: justify;
+    padding: 8em; /* espaçamento dinâmico */
+    color: rgb(26, 26, 26);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
+                rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
+                rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+
+/* Ajustes para telas menores (tablets e celulares) */
+@media (max-width: 1024px) {
+    .apresentacao {
+        padding: 8vh 4vw;
+        text-align: center;
+        background-position: top;
+    }
+}
+
+@media (max-width: 768px) {
+    .apresentacao {
+        padding: 6vh 3vw;
+        font-size: 0.95rem; /* diminui o texto em telas pequenas */
+    }
+}
+
+@media (max-width: 480px) {
+    .apresentacao {
+        padding: 4vh 2vw;
+        font-size: 0.85rem;
+    }
+}
+
+.texto_apresentacao{
+  margin-top: 5.5em;
+  padding: 3em;
+}
+
+.comprar {
+  position: relative;
+  display: flex;
+  padding: 0.4em;
+  width: 250px;
+  color:aliceblue;
+  font-size: 15px;
+  margin: 50px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background: #183153;
+  box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  cursor: pointer;
+  border: none;
+}
+
+.comprar:after {
+  content: " ";
+  width: 0%;
+  height: 100%;
+  background: #216c9e;
+  position: absolute;
+  transition: all 0.4s ease-in-out;
+  right: 0;
+}
+
+.comprar:hover::after {
+  right: auto;
+  left: 0;
+  color: aliceblue;
+  width: 100%;
+}
+
+
+.comprar span {
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  padding: 18px 25px;
+  color: #fff;
+  font-size: 1.125em;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  z-index: 20;
+  transition: all 0.3s ease-in-out;
+}
+
+.comprar:hover span {
+  color: #e4e4e4;
+  animation: scaleUp 0.3s ease-in-out;
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(0.95);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+
+.catalogo{
+    background-color: rgb(248, 246, 246);
+    display: flex;
+    padding: 5em;
+    align-items: center;
+   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    font-size: 18px;
+}
+
+.texto_catalogo{
+    text-align: justify;
+    margin: 20px;
+    font-size: 18px;
+}
+
+h2,h1{
+    font-size: 40px;
+}
+
+
+.capinha{
+    border-radius: 100%;
+    height: 380px;
+    width: 460px;
+}
+
+.retirada, .frete, .preco, .atendimento{
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+
+.informacoes{
+  display:flex;
+  border-radius: 5px;
+   background-color: rgb(248, 246, 246);
+  justify-content: space-around;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  margin: 25px;
+  padding: 2.5em;
+}
+
+.tex{
+  margin: 15px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.maisvendidos{
+  display: flex;
+  justify-content: space-evenly;
+  padding: 3em;
+}
+
+.titu_vendidos{
+  text-align: center;
+  background-color: rgb(248, 246, 246);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  font-weight: 600;
+  color: #252525;
+  padding: 1.3em;
+  font-size: 33px;
+  margin-top: 2.3em;
+  font-weight: 600;
+}
+
+.texto_prod {
+  font-size: 17px;
+  color: #ffffff;
+  font-weight: 340;
+  display: inline-block; /* faz a largura seguir o conteúdo */
+  text-align: center;
+  padding: 10px;
+}
+
+
+/* ===== Faixa PROMOÇÃO ===== */
+.promocao {
+  position: absolute;
+  top: 10px;
+  left: -30px;
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  padding: 5px 40px;
+  font-size: 14px;
+  transform: rotate(-20deg);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+  z-index: 10;
+}
+
+/* Garante que o selo fique por cima do card */
+.produto {
+  position: relative;
+}
+
+
+
+.produto {
+  padding: 1em;
+  margin: 2.7em;
+  width: 300px;
+  background: linear-gradient(to top, #292929 46%, transparent 46%);
+  border-radius: 10px;
+ box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  display: flex;
+  flex-direction: column; /* empilha verticalmente */
+  align-items: center;    /* centraliza horizontalmente todos os filhos */          /* espaçamento entre imagem / textos */
+}
+
+.precobtn {
+ display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 40px;
+  gap: 15px;
+  background-color: #8b2e2e;;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  outline-offset: -3px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: 400ms;
+}
+
+.precobtn .text-btn {
+  color: rgb(236, 236, 236);
+  font-weight: 400;
+  font-size: 15px;
+  transition: 400ms;
+}
+
+.precobtn svg path {
+  transition: 400ms;
+}
+
+.precobtn:hover {
+  background-color: rgb(146, 76, 76);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  inset: 0;
+  background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 12px;
+  width: 320px;
+  margin: 10% auto;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.modal-content img {
+  width: 150px;
+  margin-bottom: 10px;
+}
+
+.fechar {
+  float: right;
+  font-size: 24px;
+  cursor: pointer;
+  color: #888;
+}
+.fechar:hover {
+  color: #000;
+}
+
+#adicionar {
+  background-color: #8b2e2e;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+#adicionar:hover {
+  background-color: rgb(146, 76, 76);
+}
+
+/* From Uiverse.io by Creatlydev */ 
+.Btn_pagamento {
+  width: 100%;
+  padding: 2em;
+  margin-top: 10px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(15, 15, 15);
+  border: none;
+  color: white;
+  font-weight: 550;
+  font-size: 14px;
+  gap: 8px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+              rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  transition-duration: .3s;
+}
+
+/* círculo verde animado */
+
+
+.Btn_pagamento:active {
+  transform: translateY(4px);
+  transition-duration: .3s;
+}
+
+/* texto e ícone acima do círculo */
+.conteudo-btn {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+}
+
+.svgIcon {
+  width: 16px;
+  fill: currentColor; /* ícone herda a cor do texto */
+}
+
+
+.produtos {
+  width: 50%;  /* imagem ocupa toda a largura da div */
+  height: auto;        /* mantém proporção */
+  border-radius: 0;    /* remove borda arredondada para ocupar topo completo */
+  background-color: transparent; /* remove fundo, senão parece que não ocupa tudo */
+  display: block;      /* garante que a imagem seja block */
+}
+
+ .slider-container {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+  }
+
+  .slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 50%;
+    z-index: 10;
+  }
+
+/* Botões de navegação do Swiper */
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  color: #272727;              /* seta branca */
+  font-size: 20px;
+  font-weight: bold;
+
+}
+  .prev { left: 10px; }
+  .next { right: 10px; }
+
+
+
+/* From Uiverse.io by PapaUiiss404 */ 
+.card {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 17px 17px;
+  gap: 20px;
+}
+
+/* for all social containers*/
+.socialContainer {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: rgb(44, 44, 44);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition-duration: .3s;
+}
+/* instagram*/
+.containerOne:hover {
+  background-color: #d62976;
+  transition-duration: .3s;
+}
+/* twitter*/
+.containerTwo:hover {
+  background-color: #00acee;
+  transition-duration: .3s;
+}
+/* linkdin*/
+.containerThree:hover {
+  background-color: #0072b1;
+  transition-duration: .3s;
+}
+/* Whatsapp*/
+.containerFour:hover {
+  background-color: #128C7E;
+  transition-duration: .3s;
+}
+
+.socialContainer:active {
+  transform: scale(0.9);
+  transition-duration: .3s;
+}
+
+.socialSvg {
+  width: 17px;
+}
+
+.socialSvg path {
+  fill: rgb(255, 255, 255);
+}
+
+.socialContainer:hover .socialSvg {
+  animation: slide-in-top 0.3s both;
+}
+
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+footer {
+  background-color: #272727;
+  padding: 5em;
+  margin-top: 6em;
+  display: flex;
+  justify-content: center; /* centraliza horizontalmente */
+  align-items: center;     /* centraliza verticalmente, se necessário */
+/* se quiser alinhar em coluna */
+}
+
+
